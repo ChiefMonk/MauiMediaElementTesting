@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="MauiMediaElementTesting.MainPage"
+             Unloaded="OnContentPageUnloaded">
+
+	<Grid Margin="2" RowDefinitions="*,Auto,Auto,Auto,Auto,Auto" RowSpacing="3">
+
+		<views:MediaElement Grid.Row="0" 
+		                    x:Name="TheMediaElement"
+		                        Aspect="AspectFill"
+		                        BackgroundColor="Transparent"
+		                        ShouldKeepScreenOn="True"
+		                        ShouldLoopPlayback="False"
+		                        Volume="1"
+		                        ShouldAutoPlay="True"
+		                        ShouldShowPlaybackControls="True"
+		                        Source="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
+		                        PositionChanged="OnPositionChanged"
+		                        StateChanged="OnStateChanged"/>
+
+		<HorizontalStackLayout Grid.Row="1">
+			<Label Text="PositionChanged.Event.Position: " />
+			<Label x:Name="PosChangedEPosition" FontAttributes="Bold" />
+		</HorizontalStackLayout>
+
+		<HorizontalStackLayout Grid.Row="2">
+			<Label Text="PositionChanged.MediaElement.Position: " />
+			<Label x:Name="PosChangedMPosition" FontAttributes="Bold" />
+		</HorizontalStackLayout>
+
+		<HorizontalStackLayout Grid.Row="3">
+			<Label Text="PositionChanged.MediaElement.Duration: " />
+			<Label x:Name="PosChangedMDuration" FontAttributes="Bold" />
+		</HorizontalStackLayout>
+
+		<HorizontalStackLayout Grid.Row="4">
+			<Label Text="StateChanged.MediaElement.Position: " />
+			<Label x:Name="StateChangedMPosition" FontAttributes="Bold" />
+		</HorizontalStackLayout>
+
+		<HorizontalStackLayout Grid.Row="5">
+			<Label Text="StateChanged.MediaElement.Duration: " />
+			<Label x:Name="StateChangedMDuration" FontAttributes="Bold" />
+		</HorizontalStackLayout>
+	</Grid>
+</ContentPage>
